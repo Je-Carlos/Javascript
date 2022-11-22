@@ -17,6 +17,9 @@ img {
 ul {
   list-style: none;
 }
+html.aumentarTexto{
+  font-size: 50%;
+}
 body {
   background: #faf6ed;
   color: #222;
@@ -24,6 +27,12 @@ body {
   
   display: grid;
   grid-template-columns: 1fr 120px minmax(300px, 800px) 1fr;
+}
+.roxo {
+  background-color: rgb(140, 52, 140);
+}
+.rosa{
+  background-color: pink;
 }
 .menu {
   grid-column: 3/5;
