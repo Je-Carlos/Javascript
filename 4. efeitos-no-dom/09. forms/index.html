@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Forms</title>
+  </head>
+  <body>
+    <style>
+      * {
+        background: #eeedea;
+      }
+      label {
+        display: block;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        margin-bottom: 0.5rem;
+        margin-top: 1rem;
+      }
+      form {
+        max-width: 400px;
+        margin: 0 auto;
+      }
+      input,
+      textarea {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 0.5rem;
+        border: 2px solid #4f4d4d;
+        border-radius: 0.5rem;
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+      }
+      textarea {
+        height: 150px;
+      }
+      .invalido {
+        border-color: red;
+      }
+      .inputColor {
+        margin-top: 1rem;
+      }
+    </style>
+    <form action="contato" id="contato">
+      <label for="nome">Nome</label>
+      <input type="text" name="nome" id="nome" required />
+      <span class="erro"></span>
+
+      <label for="email">Email</label>
+      <input type="email" name="email" id="email" required />
+      <span class="erro"></span>
+
+      <label for="textarea">Mensagem</label>
+      <textarea name="textarea" id="textarea"></textarea>
+      <select name="cores" id="cores">
+        <option value="blue">Azul</option>
+        <option value="red">Vermelho</option>
+      </select>
+      <input class="inputColor" type="color" />
+      <input type="date" />
+      <input type="number" />
+      <input type="range" />
+      <input type="password" />
+      <input type="checkbox" value="identidade" id="identidade" />
+      <label for="identidade">Casada?</label>
+      <input type="radio" value="masc" id="masc" name="sexo" />
+      <label for="masc">Masculino</label>
+      <input type="radio" value="fem" id="fem" name="sexo" />
+      <label for="fem">Feminino</label>
+    </form>
+    <span class="texto"></span>
+
+    <script>
+      const contato = document.querySelector("#contato");
+      const texto = document.querySelector(".texto");
+
+      console.log(document.forms[0]);
+
+      // HTMLCollection com os elementos de input dentro
+      console.log(contato.elements.nome.value);
+      console.log(contato);
+
+      // propriedade value, e alguns eventos para formulários
+      function handleKeyUp(e) {
+        const target = e.target;
+        // dando o valor digitado
+        console.log(target.value);
+        console.log(target.checkValidity());
+
+        if (!target.checkValidity()) {
+          target.classList.add("invalido");
+          target.nextElementSibling.innerText = target.validationMessage;
+        }
+        texto.innerText = target.value;
+      }
+      function changeBackgroundColor() {
+        // mudando o style do background e colocando ele como o valor target
+        // (blue ou red)
+        document.body.style.backgroundColor = event.target.value;
+      }
+
+      function inputsType() {
+        console.log(event.target.value);
+      }
+      function handleCheck() {
+        if (event.target.checked) {
+          console.log("oi casada rs");
+        }
+      }
+
+      // keyup - quando "levantar" alguma tecla
+      // change - quando mudar de formulário
+      contato.addEventListener("change", handleKeyUp);
+      contato.addEventListener("change", changeBackgroundColor);
+      contato.addEventListener("change", inputsType);
+      contato.addEventListener("change", handleCheck);
+
+      // Como selecionar todos os valores de uma vez
+      const dados = {};
+      function handleData(data) {
+        dados[data.target.name] = data.target.value;
+      }
+      contato.addEventListener("change", handleData);
+    </script>
+  </body>
+</html>
