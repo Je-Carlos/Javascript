@@ -42,6 +42,7 @@ function handleChange(e) {
   const value = e.target.value;
   handleStyle[name](value);
   showCss();
+  localPreference(name, value);
 }
 
 /* modifica o conteudo do HTML dentro da classe .css criando um span e sepando 
@@ -50,3 +51,18 @@ function showCss() {
   cssText.innerHTML =
     "<span>" + btn.style.cssText.split("; ").join(";</span><span>");
 }
+/* Armazenamento local, nele ficará armazenado qualquer informação passada,
+sendo necessário apagar manualmente */
+function localPreference(name, value) {
+  localStorage[name] = value;
+}
+
+function setValues() {
+  const properties = Object.keys(localStorage);
+  properties.forEach((properties) => {
+    handleStyle[properties](localStorage[properties]);
+    controller.elements[properties].value = localStorage[properties];
+  });
+  showCss();
+}
+setValues();

@@ -1,3 +1,6 @@
+h1 {
+  text-align: center;
+}
 div {
   display: grid;
   align-content: center;
@@ -40,4 +43,7 @@ input {
 .css span {
   display: block;
   margin-bottom: 0.5rem;
+}
+.create {
+  text-align: center;
 }
