@@ -4,10 +4,35 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>Fetch</title>
   </head>
   <body>
-    <div class="content"></div>
-    <script src="script.js"></script>
+    <form id="procuraCep">
+      <label for="cep">CEP</label>
+      <input type="text" name="cep" id="cep" required />
+      <input type="button" value="buscar cep" id="btnCep" />
+    </form>
+    <div class="retornaCep"></div>
+    <div class="retornaLogradouro"></div>
+    <div class="retornaBairro"></div>
+
+    <div>
+      <h3>
+        Atualmento o preço do BTC é de
+        <p class="btcPrice"></p>
+      </h3>
+    </div>
+    <button class="newJoke">Nova Piada</button>
+    <div>
+      <p class="joke"></p>
+    </div>
+
+    <button class="newCat">Novo Gato</button>
+    <div>
+      <img src="" alt="" class="catImg" />
+    </div>
+
+    <script src="./exercicio/exercicio.js"></script>
   </body>
 </html>
