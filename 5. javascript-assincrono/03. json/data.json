@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "faculdade": true,
+    "pertences": ["lapis", "caneta", "caderno"],
+    "endereco": {
+      "cidade": "Rio de Janeiro",
+      "pais": "Brasil"
+    },
+    "casado": null
+  },
+
+  {
+    "id": 2,
+    "aula": "JavaScript",
+    "tempo": "25 min"
+  },
+  {
+    "id": 3,
+    "aula": "Python",
+    "tempo": "42 min"
+  }
+]
